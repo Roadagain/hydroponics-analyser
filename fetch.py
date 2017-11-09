@@ -2,6 +2,7 @@
 
 import requests
 import json
+from datetime import datetime as dt
 
 def fetch_dict(url):
     res = requests.get(url)
@@ -9,7 +10,9 @@ def fetch_dict(url):
 
 def main():
     data = fetch_dict('http://localhost:5000/fetch/test')
-    print(data)
+    filename = dt.today().strftime('%Y%m%d%H%M%S') + '.json'
+    f = open(filename, 'w')
+    f.write(json.dumps(data))
 
 if __name__ == '__main__':
     main()
