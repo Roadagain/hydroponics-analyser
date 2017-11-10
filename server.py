@@ -5,9 +5,11 @@ from datetime import datetime as dt
 import json
 import fetch
 
+API_URL = 'http://localhost:5000/fetch'
+
 def main():
     """Main function"""
-    data = fetch.fetch_dict('http://localhost:5000/fetch/test')
+    data = fetch.fetch_dict(API_URL)
     del data['result']
     filename = dt.today().strftime('%Y%m%d%H%M%S') + '.json'
     datafile = open(filename, 'w')
