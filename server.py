@@ -6,12 +6,13 @@ import json
 import fetch
 
 API_URL = 'http://localhost:5000/fetch'
+DATA_DIR = './data/'
 
 def main():
     """Main function"""
     data = fetch.fetch_dict(API_URL)
     del data['result']
-    filename = dt.today().strftime('%Y%m%d%H%M%S') + '.json'
+    filename = DATA_DIR + dt.today().strftime('%Y%m%d%H%M%S') + '.json'
     datafile = open(filename, 'w')
     datafile.write(json.dumps(data))
 
