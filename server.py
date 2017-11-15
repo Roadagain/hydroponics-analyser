@@ -14,7 +14,7 @@ def main():
     del data['result']
     filename = DATA_DIR + dt.today().strftime('%Y%m%d%H%M%S') + '.json'
     datafile = open(filename, 'w')
-    datafile.write(json.dumps(data))
+    datafile.write(json.dumps(data, separators=(',', ':')))
 
 if __name__ == '__main__':
     main()
